@@ -1,28 +1,24 @@
 package task.telkom.appium.stepsdefinitions;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.cucumber.spring.CucumberContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import task.telkom.appium.SpringContextConfiguration;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.time.Duration;
 
+@CucumberContextConfiguration
+@SpringBootTest(classes = {SpringContextConfiguration.class})
 public class Hooks {
-    public static AndroidDriver driver;
+    @Autowired
+    private AppiumDriver driver;
 
     @Before
-    public void setupDriver() throws MalformedURLException {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("deviceName", "Pixel XL API 30");
-        caps.setCapability("udid", "emulator-5554"); //DeviceId from "adb devices" command
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "11.0");
-        caps.setCapability("skipUnlock", "true");
-        caps.setCapability("appPackage", "com.ecommerce.service");
-        caps.setCapability("appActivity", "com.ecommerce.service.Activity.WelcomeActivity");
-        caps.setCapability("noReset", "false");
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"),caps);
+    public void setupDriver() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @After
