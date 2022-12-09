@@ -1,7 +1,10 @@
-@login
-Feature: Login
+@smoke
+Feature: Welcome Page slider
 
 
-  @smoke
-  Scenario: Login successfully
+  @slider
+  Scenario: Slide successfully
     Given I open App
+    Then I slide it 3 times
+    Then I click "Let's Get Started" button
+    And I see HomePage

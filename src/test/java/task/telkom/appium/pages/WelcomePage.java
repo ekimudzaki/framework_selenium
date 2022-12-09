@@ -1,20 +1,50 @@
 package task.telkom.appium.pages;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.testng.Assert;
 
-public class WelcomePage {
+@Component
+@Scope("cucumber-glue")
+public class WelcomePage extends BasePage{
 
-    @AndroidFindBy(id="fragment_home_indicator")
-    private WebElement sliderIndicator;
+    @FindBy(id = "fragment_home_indicator")
+    WebElement sliderIndicator;
 
-    public WelcomePage(AndroidDriver driver){
-        PageFactory.initElements(driver, this);
+    @FindBy(id = "activity_welcome_one_tvTitle")
+    WebElement textTitle;
+
+    @FindBy(id = "activity_welcome_one_tvDes")
+    WebElement textSubTitle;
+
+    @FindBy(id = "btn_start_shop")
+    WebElement btnStart;
+
+    public WelcomePage(AppiumDriver driver){
+        PageFactory.initElements(driver,this);
     }
 
-    public void assertSlide(){
+    public void assertWelcomePage() {
+        Assert.assertEquals(textTitle.getText(),"THE \n" +
+                "STYLE \n" +
+                "YOU \n" +
+                "LOVE");
+        Assert.assertEquals(textSubTitle.getText(),"Clothing");
         sliderIndicator.isDisplayed();
+    }
+
+    public void swipeRight(Integer counter) {
+        for (int i = 0; i < counter ; i++) {
+            swipe();
+        }
+    }
+
+    public void clickOnText(String text) {
+        Assert.assertEquals(btnStart.getText(),text);
+        btnStart.click();
     }
 }
