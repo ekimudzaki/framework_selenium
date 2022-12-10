@@ -28,8 +28,15 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-web:$spring"
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring"
     testImplementation "io.appium:java-client:$appium"
+    testImplementation "org.projectlombok:lombok:$lombok"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombok"
 }
 
 test {
     useTestNG()
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
+    if (project.hasProperty('configName')) {
+        systemProperty 'spring.config.name', project.getProperty('configName')
+    }
 }
