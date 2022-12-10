@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Sequence;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.Duration;
-import java.util.List;
+import java.util.Arrays;
 
 public class BasePage {
     @Autowired
@@ -32,6 +32,6 @@ public class BasePage {
         swiping.addAction(finger.createPointerMove(Duration.ofMillis(700),
                 PointerInput.Origin.viewport(), target.x, target.y));
         swiping.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(List.of(swiping));
+        driver.perform(Arrays.asList(swiping));
     }
 }
