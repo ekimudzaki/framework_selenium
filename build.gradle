@@ -35,6 +35,7 @@ dependencies {
 
 test {
     useTestNG()
+    systemProperties(System.properties)
     scanForTestClasses = false
     testLogging.showStandardStreams = true
     if (project.hasProperty('configName')) {
