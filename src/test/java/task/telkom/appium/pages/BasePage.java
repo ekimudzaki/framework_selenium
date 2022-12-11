@@ -1,6 +1,7 @@
 package task.telkom.appium.pages;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;
@@ -19,7 +20,6 @@ public class BasePage {
     }
 
     public void swipe(){
-
         int x = (int) (getDimension().getWidth() * 0.9);
         int y = getDimension().getHeight()/2;
         Point source = new Point(x,y);
@@ -33,5 +33,9 @@ public class BasePage {
                 PointerInput.Origin.viewport(), target.x, target.y));
         swiping.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(swiping));
+    }
+
+    public void clickOnText(String text){
+        driver.findElement(By.xpath("//android.widget.TextView[@text='"+ text +"']")).click();
     }
 }

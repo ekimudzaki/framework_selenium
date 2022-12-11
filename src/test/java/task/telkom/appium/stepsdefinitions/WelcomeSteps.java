@@ -21,6 +21,6 @@ public class WelcomeSteps {
 
     @Then("I click {string} button")
     public void iClickButton(String text) {
-        welcomePage.clickOnText(text);
+        welcomePage.clickOn(text);
     }
 }

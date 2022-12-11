@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("cucumber-glue")
-public class HomePage {
+public class HomePage extends BasePage {
     @FindBy(id="fragment_home_tlHome")
     WebElement homeMenu;
 
@@ -20,5 +20,9 @@ public class HomePage {
 
     public void assertHome() {
         homeMenu.isDisplayed();
+    }
+
+    public void clickOn(String textMenu) {
+        clickOnText(textMenu);
     }
 }

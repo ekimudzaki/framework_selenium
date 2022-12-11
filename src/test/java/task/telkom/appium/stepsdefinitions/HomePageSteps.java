@@ -1,5 +1,6 @@
 package task.telkom.appium.stepsdefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 import task.telkom.appium.pages.HomePage;
@@ -13,4 +14,8 @@ public class HomePageSteps {
         homePage.assertHome();
     }
 
+    @Given("User tap {string} on HomePage")
+    public void userTapOnHomePage(String textMenu) {
+        homePage.clickOn(textMenu);
+    }
 }

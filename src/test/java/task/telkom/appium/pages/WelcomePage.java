@@ -44,7 +44,7 @@ public class WelcomePage extends BasePage{
         }
     }
 
-    public void clickOnText(String text) {
+    public void clickOn(String text) {
         Assert.assertEquals(btnStart.getText(),text);
         btnStart.click();
     }
