@@ -23,6 +23,9 @@ public class ConfigProperties {
     @Value("${capability.fullReset}")
     private String fullReset;
 
+    @Value("${capability.noReset}")
+    private String noReset;
+
     @Value("${capability.appiumURL}")
     private String appiumURL;
 

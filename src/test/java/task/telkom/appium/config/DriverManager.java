@@ -22,7 +22,9 @@ public AppiumDriver appiumDriverFactory() throws MalformedURLException {
             .setDeviceName(properties.getDeviceName())
             .setAppPackage(properties.getAppPackage())
             .setAppActivity(properties.getAppActivity())
-            .setFullReset(Boolean.parseBoolean(properties.getFullReset()));
+            .setFullReset(Boolean.parseBoolean(properties.getFullReset()))
+            .setNoReset(Boolean.parseBoolean(properties.getNoReset()))
+            .eventTimings();
     return new AppiumDriver(new URL(properties.getAppiumURL()),caps);
 }
 }
