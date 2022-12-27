@@ -24,9 +24,7 @@ public class Hooks {
     private ConfigProperties prop;
 
     @Before
-    public void openBrowser(Scenario scenario) {
-//        WebDriverManager.firefoxdriver().setup();
-//        driver = new FirefoxDriver();
+    public void openBrowser() {
         driver.get(prop.getUrl());
     }
 
