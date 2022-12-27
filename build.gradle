@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'idea'
 }
 
 group 'org.example'
@@ -12,7 +13,6 @@ repositories {
 ext{
     cucumber= '7.8.1'
     selenium= '4.7.2'
-    webdrivermanager= '5.3.1'
     spring = '3.0.0'
     lombok= '1.18.24'
 }
@@ -22,7 +22,6 @@ dependencies {
     testImplementation "io.cucumber:cucumber-testng:$cucumber"
     testImplementation "org.seleniumhq.selenium:selenium-java:$selenium"
     testImplementation "org.seleniumhq.selenium:selenium-api:$selenium"
-//    testImplementation "io.github.bonigarcia:webdrivermanager:$webdrivermanager"
     testImplementation "io.cucumber:cucumber-spring:$cucumber"
     testImplementation "org.springframework.boot:spring-boot-starter-web:$spring"
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring"
@@ -41,6 +40,9 @@ test {
     if (project.hasProperty('configName')) {
         systemProperty 'spring.config.name', project.getProperty('configName')
     }
+//    if(!project.hasProperty('dataproviderthreadcount')){
+//        systemProperty 'dataproviderthreadcount',1
+//    }
 }
 //
 //def generateReport() {
