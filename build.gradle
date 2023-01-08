@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation 'net.masterthought:cucumber-reporting:5.7.4'
+    implementation 'com.epam.reportportal:agent-java-cucumber6:5.1.2'
 }
 
 test {

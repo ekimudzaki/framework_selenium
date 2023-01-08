@@ -10,7 +10,8 @@ import org.testng.annotations.DataProvider;
         plugin = {
                 "pretty",
                 "html:build/test-results/html-report.html",
-                "json:build/test-results/json-report.json"
+                "json:build/test-results/json-report.json",
+                "com.epam.reportportal.cucumber.ScenarioReporter"
         })
 public class CucumberRunner extends AbstractTestNGCucumberTests {
         @Override
