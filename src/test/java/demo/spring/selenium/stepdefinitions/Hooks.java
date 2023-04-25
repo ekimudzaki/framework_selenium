@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.concurrent.TimeUnit;
+
 @CucumberContextConfiguration
 @SpringBootTest(classes = {SpringContextConfiguration.class})
 @Slf4j
@@ -25,6 +27,7 @@ public class Hooks {
 
     @Before
     public void openBrowser() {
+        driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getTimeout()), TimeUnit.SECONDS);
         driver.get(prop.getUrl());
     }
 
