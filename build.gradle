@@ -27,10 +27,9 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring"
     testImplementation "org.projectlombok:lombok:$lombok"
     testAnnotationProcessor "org.projectlombok:lombok:$lombok"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation 'net.masterthought:cucumber-reporting:5.7.4'
     implementation 'com.epam.reportportal:agent-java-cucumber6:5.1.2'
+    implementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
 test {
@@ -41,36 +40,3 @@ test {
     if (project.hasProperty('configName')) {
         systemProperty 'spring.config.name', project.getProperty('configName')
     }
-//    if(!project.hasProperty('dataproviderthreadcount')){
-//        systemProperty 'dataproviderthreadcount',1
-//    }
-}
-//
-//def generateReport() {
-//    File reportOutputDirectory = new File("build/test-report")
-//    reportOutputDirectory.deleteDir()
-//
-//    def jsonReports = fileTree(dir: "build/test-results").include '**/*.json'.toString()
-//    List<String> jsonReportFiles = new ArrayList<String>()
-//    jsonReports.each { File file ->
-//        jsonReportFiles.add("build/test-results/${file.name}".toString())
-//    }
-//
-//    String projectName = project.name
-//    Configuration configuration = new Configuration(reportOutputDirectory, projectName) {}
-//    configuration.addClassifications("Version", project.version);
-//
-//    Report reportBuilder = new ReportBuilder(jsonReportFiles, configuration)
-//    reportBuilder.generateReports()
-//
-//    println("\nReport: file://" + reportOutputDirectory.getCanonicalPath() + "/cucumber-html-reports/overview-features.html")
-//}
-//
-//task generateReport() {
-//    doLast {
-//        generateReport()
-//    }
-//}
-//
-//
-//test.finalizedBy generateReport
