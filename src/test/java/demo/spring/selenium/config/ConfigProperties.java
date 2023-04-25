@@ -14,4 +14,8 @@ import org.springframework.context.annotation.Configuration;
 public class ConfigProperties {
     @Value("{url}")
     private String url;
+
+    @Value("{timeout}")
+    private String timeout;
+
 }
