@@ -41,12 +41,17 @@ public class SignUpStepsDef {
     }
 
     @Then("user click on start using autobahn button")
-    public void userClickOnStartUsingAutobahnButton() {
+    public void userClickOnStartUsingAutobahnButton(){
         signUpPage.clickStart();
     }
 
     @And("user input all required fields")
     public void userInputAllRequiredFields() {
         signUpPage.insertAllRequiredFields();
+    }
+
+    @And("user click on create new account button")
+    public void userClickOnCreateNewAccountButton() {
+        signUpPage.clickCreateNewAccount();
     }
 }

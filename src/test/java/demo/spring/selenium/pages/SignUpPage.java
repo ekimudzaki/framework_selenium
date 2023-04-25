@@ -33,8 +33,12 @@ public class SignUpPage {
     WebElement prefixNumber ;
     @FindBy(css = "input[placeholder='Phone number*']")
     WebElement phoneNumber ;
-    @FindBy(css = "//*[@id=\"signup\"]/div[3]/div/div[2]/div/div/div[2]/div[2]/div[5]/div/a")
+    @FindBy(xpath = "//*[@id=\"signup\"]/div[3]/div/div[2]/div/div/div[2]/div[2]/div[5]/div/a")
     WebElement btnStart ;
+    @FindBy(css = "div[id='create-new-account-btn'] p[class='button-text paragraph button-large']")
+    WebElement btnNewAccount ;
+    @FindBy(css = ".button-text.paragraph.button-large")
+    WebElement btnResendEmail ;
 
     boolean btnSignUpstatus;
 
@@ -73,19 +77,25 @@ public class SignUpPage {
         return false;
     }
 
-    public void clickStart() {
-        if(!hasClass(btnStart,"disabled")){
-            btnStart.click();
-        }
+    public void clickStart(){
+        btnStart.click();
     }
 
     public void insertAllRequiredFields() {
-
         Faker faker = new Faker();
         fistName.sendKeys(faker.name().firstName());
         lastName.sendKeys(faker.name().lastName());
         industry.click();
         selected.click();
-        phoneNumber.sendKeys(faker.phoneNumber().subscriberNumber(10));
+        phoneNumber.sendKeys("3065601" + faker.phoneNumber().subscriberNumber(3));
+    }
+
+    public void clickCreateNewAccount() {
+        btnNewAccount.click();
+        verifyEmailPopUp();
+    }
+
+    private void verifyEmailPopUp() {
+        Assert.assertEquals(btnResendEmail.getText(),"Resend Verification Link");
     }
 }

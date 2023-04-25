@@ -8,9 +8,10 @@
       Then user should be able to click sign up
       And user input all required fields
       Then user click on start using autobahn button
+      And user click on create new account button
     Examples:
-      | email                   | password       | message     | btnStatus |
-#      | jcoupkpdo@bugfoo.com    | Sekolah4n      | Weak        | disabled  |
-#      | jflamn@bugfoo.com       | Sekolah4n.     | Average     | disabled  |
-#      | jflamn@bugfoo.com       | Sekolah4n.a    | Strong      | enabled   |
-      | fnkattkmhuis@bugfoo.com | Sekolah4n.auto | Very Strong | enabled   |
+      | email                  | password       | message     | btnStatus |
+      | fxtrnyzv@bugfoo.com    | Sekolah4n      | Weak        | disabled  |
+      | iiepgaetgpl@bugfoo.com | Sekolah4n.     | Average     | disabled  |
+      | lrsfabkd@bugfoo.com    | Sekolah4n.a    | Strong      | enabled   |
+      | oqvdkf@bugfoo.com      | Sekolah4n.auto | Very Strong | enabled   |
