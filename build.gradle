@@ -40,3 +40,7 @@ test {
     if (project.hasProperty('configName')) {
         systemProperty 'spring.config.name', project.getProperty('configName')
     }
+//    if(!project.hasProperty('dataproviderthreadcount')){
+//        systemProperty 'dataproviderthreadcount',1
+//    }
+}
